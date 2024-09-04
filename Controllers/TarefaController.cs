@@ -92,12 +92,12 @@ namespace TrilhaApiDesafio.Controllers
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
-            var tarefaBanco = _context.Tarefas.Find(id);
+            var (task, found) = FindTask(id);
 
-            if (tarefaBanco == null)
+            if (task == null)
                 return NotFound();
 
-            // TODO: Remover a tarefa encontrada através do EF e salvar as mudanças (save changes)
+            _context.Tarefas.Remove(task);
             return NoContent();
         }
     }
