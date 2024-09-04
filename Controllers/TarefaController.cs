@@ -15,6 +15,15 @@ namespace TrilhaApiDesafio.Controllers
             _context = context;
         }
 
+        private (Tarefa, bool) FindTask(int id)
+        {
+            var task = _context.Tarefas.Find(id);
+            if (task == null)
+                return (null, false);
+        
+            return (task, true);
+        }
+
         [HttpGet("{id}")]
         public IActionResult ObterPorId(int id)
         {
