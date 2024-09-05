@@ -46,7 +46,7 @@ namespace TrilhaApiDesafio.Controllers
         [HttpGet("ObterPorTitulo")]
         public IActionResult ObterPorTitulo(string titulo)
         {
-            var task = _context.Tarefas.Where(x => x.Titulo == titulo);
+            var task = _context.Tarefas.Where(x => x.Titulo.Contains(titulo));
             return Ok(task);
         }
 
