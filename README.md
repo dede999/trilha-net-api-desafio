@@ -30,16 +30,16 @@ Não se esqueça de gerar a sua migration para atualização no banco de dados.
 **Endpoints**
 
 
-| Verbo  | Endpoint                | Parâmetro | Body          |
-|--------|-------------------------|-----------|---------------|
-| GET    | /Tarefa/{id}            | id        | N/A           |
-| PUT    | /Tarefa/{id}            | id        | Schema Tarefa |
-| DELETE | /Tarefa/{id}            | id        | N/A           |
-| GET    | /Tarefa/ObterTodos      | N/A       | N/A           |
-| GET    | /Tarefa/ObterPorTitulo  | titulo    | N/A           |
-| GET    | /Tarefa/ObterPorData    | data      | N/A           |
-| GET    | /Tarefa/ObterPorStatus  | status    | N/A           |
-| POST   | /Tarefa                 | N/A       | Schema Tarefa |
+| Verbo  | Endpoint               | Parâmetro | Body          |   Commit   |
+|--------|------------------------|-----------|---------------|:----------:|
+| GET    | /Tarefa/{id}           | id        | N/A           |  e37f215b  |
+| PUT    | /Tarefa/{id}           | id        | Schema Tarefa |  eaa90045  |
+| DELETE | /Tarefa/{id}           | id        | N/A           |  35448373  |
+| GET    | /Tarefa/ObterTodos     | N/A       | N/A           |  b2f74770  |
+| GET    | /Tarefa/ObterPorTitulo | titulo    | N/A           |  574d4fad  |
+| GET    | /Tarefa/ObterPorData   | data      | N/A           | Pré pronto |
+| GET    | /Tarefa/ObterPorStatus | status    | N/A           | Pré pronto |
+| POST   | /Tarefa                | N/A       | Schema Tarefa |  65035185  |
 
 Esse é o schema (model) de Tarefa, utilizado para passar para os métodos que exigirem
 
