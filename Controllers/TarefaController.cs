@@ -75,19 +75,26 @@ namespace TrilhaApiDesafio.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Atualizar(int id, Tarefa tarefa)
+        public IActionResult Atualizar(int id, UpdateTaskDto tarefa)
         {
             var tarefaBanco = _context.Tarefas.Find(id);
 
             if (tarefaBanco == null)
                 return NotFound();
-
-            if (tarefa.Data == DateTime.MinValue)
-                return BadRequest(new { Erro = "A data da tarefa não pode ser vazia" });
-
-            // TODO: Atualizar as informações da variável tarefaBanco com a tarefa recebida via parâmetro
-            // TODO: Atualizar a variável tarefaBanco no EF e salvar as mudanças (save changes)
-            return Ok();
+            
+            tarefaBanco.Data = DateTime.UtcNow;
+            if (tarefa.Status != null) {
+                tarefaBanco.Status = tarefa.Status.Value;
+            }
+            if (tarefa.Titulo != null) {
+                tarefaBanco.Titulo = tarefa.Titulo;
+            }
+            if (tarefa.Descricao != null) {
+                tarefaBanco.Descricao = tarefa.Descricao;
+            }
+            _context.Tarefas.Update(tarefaBanco);
+            _context.SaveChanges();
+            return Ok(tarefaBanco);
         }
 
         [HttpDelete("{id}")]
